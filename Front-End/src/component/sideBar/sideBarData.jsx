@@ -3,7 +3,7 @@ import { FaUsers } from "react-icons/fa";
 
 const Data = [
   {
-    path: "/",
+    path: "/dashboard",
     title: "Dashboard",
     icon: MdHome,
     size: 30,

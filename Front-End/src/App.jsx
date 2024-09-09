@@ -7,12 +7,16 @@ import Newevent from "./pages/newevent/newevent";
 import Manageevent from "./pages/manageevent/manageevent";
 import User from "./pages/user/user";
 import UserManagement from "./pages/usermanagement/usermanagement";
+import Signup from "./pages/signup/signup";
+import Signin from "./pages/signin/signin";
 
 function App() {
   return (
     <div className="bg-custom z-0">
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={<Signin />} />
+      <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/newevent" element={<Newevent />} />
         <Route path="/usermanagement" element={<UserManagement />} />
         <Route path="/Manageevent" element={<Manageevent />} />
