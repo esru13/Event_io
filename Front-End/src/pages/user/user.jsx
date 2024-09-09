@@ -21,21 +21,27 @@ function User() {
   };
 
   const handleSave = () => {
-
     setEditing(false);
+  };
+
+  const handleLogout = () => {
+    // Add logout functionality here
+    console.log("Logged out");
   };
 
   return (
     <CenterLayout>
       <div className="w-full mx-auto py-10 ml-60 mt-22 bg-white rounded-lg shadow-lg flex items-start">
+        <div className="flex items-center ml-8">
 
-        <div className="w-36 h-36 bg-[#5516DA] rounded-full flex items-center justify-center overflow-hidden ml-8 mt-20">
+          <div className="w-36 h-36 bg-[#5516DA] rounded-full flex items-center justify-center overflow-hidden">
+            <FaUser size={80} color="white" />
+          </div>
 
-
-          <FaUser size={80} color="white" />
+          <div className="w-1 h-96 bg-gray-300 ml-4"></div> 
         </div>
 
-        <div className="text-black text-sm flex flex-col space-y-4 px-6 w-full">
+        <div className="text-black text-sm flex flex-col space-y-4 px-6 w-full mt-8">
           <form>
             <div className="flex items-center space-x-2 mb-4">
               <FaUser size={20} />
@@ -122,13 +128,22 @@ function User() {
                   </button>
                 </>
               ) : (
-                <button
-                  type="button"
-                  onClick={() => setEditing(true)}
-                  className="bg-[#5516DA] text-white p-2 rounded hover:bg-[#4a14a4]"
-                >
-                  Edit Profile
-                </button>
+                <>
+                  <button
+                    type="button"
+                    onClick={() => setEditing(true)}
+                    className="bg-[#5516DA] text-white p-2 rounded hover:bg-[#4a14a4] mr-2"
+                  >
+                    Edit Profile
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="bg-[#E1DCFF] text-[#5516DA] p-2 rounded hover:bg-[#d0c8ff]"
+                  >
+                    Logout
+                  </button>
+                </>
               )}
             </div>
           </form>
