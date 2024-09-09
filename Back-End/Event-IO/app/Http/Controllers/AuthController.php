@@ -5,6 +5,7 @@ use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegistrationRequest;
 use App\Http\Requests\EventOrgRegisterRequest;
 use App\Http\Requests\EventOrgLoginRequest;
+use App\Http\Requests\UpdatePassword;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -55,22 +56,7 @@ class AuthController extends Controller
         ], 401);
     }
 
-    public function logoutUser(Request $request): JsonResponse
-    {
-        try {$request->user()->currentAccessToken()->delete();
 
-        return response()->json([
-            'message' => 'Logout successful'
-        ], 200);
-    }
-        catch (\Exception $e) {
-            return response()->json([
-                'message' => 'Logout failed',
-                'error' => $e->getMessage()
-            ], 500);
-        }
-     }
-    
      public function registerEventOrganizer(EventOrgRegisterRequest $request): JsonResponse
 
      {
@@ -112,19 +98,32 @@ class AuthController extends Controller
         ], 401);
     }
 
-    public function logoutEventOrg(Request $request): JsonResponse
+    public function logout(Request $request): JsonResponse
     {
-        try {$request->user()->currentAccessToken()->delete();
+    { $request->user()->currentAccessToken()->delete();
 
         return response()->json([
             'message' => 'Logout successful'
         ], 200);
-    }
-        catch (\Exception $e) {
-            return response()->json([
-                'message' => 'Logout failed',
-                'error' => $e->getMessage()
-            ], 500);
-        }
      }
+    }
+    public function updatePassword(UpdatePassword $request): JsonResponse
+    {
+        $validated = $request->validated();
+
+        $user = Auth::user();
+
+        if (!Hash::check($validated['old_password'], $user->password)) {
+            return response()->json([
+                'message' => 'Old password is incorrect'
+            ], 400);
+        }
+
+        $user->password = Hash::make($validated['new_password']);
+        $user->save();
+
+        return response()->json([
+            'message' => 'Password updated successfully'
+        ], 200);
+    }
 };
