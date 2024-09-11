@@ -23,7 +23,6 @@ class CategoryController extends Controller
     public function CreateCategory(CategoryRequest  $request): JsonResponse
     {
         $validator = $request->validated();
-
         $category = Category::create([
             'name' => $request->name,
             'description' => $request->description,

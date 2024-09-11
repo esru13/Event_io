@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::post('register/user', [AuthController::class, 'registerUser']);
 Route::post('register/eventOrg', [AuthController::class, 'registerEventOrganizer']);
 Route::post('login/eventOrg', [AuthController::class, 'loginEventOrg']);
 Route::get('categories', [CategoryController::class, 'GetCategories']);
+Route::get('events', [EventController::class, 'events']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout/', [AuthController::class, 'logout']);
@@ -37,6 +39,7 @@ Route::middleware(['auth:sanctum', 'event_organizer'])->group(function () {
     Route::post('add/categories', [CategoryController::class, 'CreateCategory']);
     Route::put('update/categories/{id}', [CategoryController::class, 'UpdateCategory']);
     Route::delete('delete/categories/{id}', [CategoryController::class, 'DeleteCategory']);
+    Route::post('create/event', [EventController::class, 'CreateEvent']);
 });
 
 

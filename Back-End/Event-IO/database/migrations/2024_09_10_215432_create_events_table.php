@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->dateTime('event_date');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->string('location');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->foreignId('organizer_id')->constrained('users')->onDelete('cascade');
