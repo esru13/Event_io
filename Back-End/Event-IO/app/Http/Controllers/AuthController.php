@@ -16,9 +16,20 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    public function isEmailInUse($email): bool
+    {
+        return User::where('email', $email)->exists();
+    }
     public function registerUser(UserRegistrationRequest $request): JsonResponse
     {
         $validated = $request->validated();
+
+        if ($this->isEmailInUse($validated['email'])) {
+            return response()->json([
+                'message' => 'Email is already in use'
+            ], 400);
+        }
+
         $validated['role'] = 'user';
 
         $user = User::create([
@@ -37,6 +48,32 @@ class AuthController extends Controller
             'user' => new UserResource($user),
         ],201);
     }
+
+    public function checkEmail(Request $request): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'Invalid email format',
+            ], 400);
+        }
+
+        $email = $request->input('email');
+
+        if ($this->isEmailInUse($email)) {
+            return response()->json([
+                'message' => 'Email is already in use'
+            ], 400);
+        }
+
+        return response()->json([
+            'message' => 'Email is available'
+        ], 200);
+    }
+
     public function loginUser(UserLoginRequest $request): JsonResponse
     {
         $credentials = $request->only('email', 'password');
