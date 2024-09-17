@@ -24,6 +24,7 @@ Route::get('/test', function(){
     return response()->json(['message' => 'Sanctum is working']);
 });
 Route::post('login/user', [AuthController::class, 'loginUser']);
+Route::post('check-email', [AuthController::class, 'checkEmail']);
 Route::post('register/user', [AuthController::class, 'registerUser']);
 Route::post('register/eventOrg', [AuthController::class, 'registerEventOrganizer']);
 Route::post('login/eventOrg', [AuthController::class, 'loginEventOrg']);
