@@ -1,131 +1,93 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from "/ticket.png";
-import { FaFacebook, FaInstagram, FaTwitter, FaGooglePlay, FaApple } from "react-icons/fa";
+import { NavLink } from 'react-router-dom';
 
-const Footer = () => {
-    return (
-        <div>
-            <div className='bg-[#7C4DFF] rounded-t-3xl sm:pt-6 mx-4 sm:mx-14 p-4 sm:p-6 text-center'>
-                <p className='text-white text-sm sm:text-base'>Your Destination for Affordable and Exciting Experiences!</p>
-                <h1 className="font-bold text-xl sm:text-3xl text-white mt-2">Download the App Now!</h1> {/* Adjusted margin-top */}
-            </div>
-            <div className='bg-[#5516DA]'>
-                {/* Top Section */}
-                <div className='bg-[#7C4DFF] mx-4 sm:mx-14 p-2 sm:p-4 text-center mb-4 rounded-b-3xl'>
-                    {/* App Store Links Section */}
-                    <div className='flex justify-center mb-4'>
-                        <div className='flex flex-col sm:flex-row gap-4 sm:pb-0 mx-4 sm:mx-14'>
-                            {/* Google Play Button */}
-                            <a
-                                href="https://play.google.com/store"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="border border-red-200 flex flex-col items-center p-3 bg-[#611df4] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                            >
-                                <span className="text-white text-xs ml-2 font-semibold">GET IT ON</span>
-                                <div className="flex items-center">
-                                    <FaGooglePlay className="text-white text-3xl" />
-                                    <span className="ml-2 text-white font-bold">Google Play</span>
-                                </div>
-                            </a>
-                            {/* App Store Button */}
-                            <a
-                                href="https://apps.apple.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="border border-red-200 flex flex-col items-center p-3 bg-[#611df4] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                            >
-                                <span className="pl-10 text-white text-xs font-semibold">Download on the</span>
-                                <div className="flex items-center">
-                                    <FaApple className="text-white text-3xl" />
-                                    <span className="ml-2 text-xl text-white font-medium">App Store</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+// react icons
+import { FaBars, FaXmark } from "react-icons/fa6";
 
-                {/* Footer Content */}
-                <div className='px-4 pt-6 sm:pt-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-16'>
-                    <div className='flex flex-col sm:flex-row items-start justify-between gap-8 mb-4 -mt-4'>
-                        {/* Logo and Eventio */}
-                        <div className='flex flex-col items-start flex-shrink-0'>
-                            <div className='flex items-center mb-2'>
-                                <img src={logo} alt="Logo" className="h-6 px-2 -ml-3" />
-                                <a href="/" className="text-xl text-white">EVENTIO</a>
-                            </div>
-                            <p className='text-[#ffffff]'>Your gateway to unforgettable events.</p>
+const Navbar = () => {
+  const [isMenuOpen, setisMenuOpen] = useState(false);
 
-                            {/* Circle Section */}
-                            <div className='flex mt-4 space-x-4'>
-                                <div className='w-10 h-10 bg-[#D9D9D9] rounded-full'></div>
-                                <div className='w-10 h-10 bg-[#D9D9D9] rounded-full'></div>
-                                <div className='w-10 h-10 bg-[#D9D9D9] rounded-full'></div>
-                                <div className='w-10 h-10 bg-[#D9D9D9] rounded-full'></div>
-                            </div>
-                        </div>
+  const toggleMenu = () => {
+    setisMenuOpen(!isMenuOpen);
+  };
 
-                        {/* Links and Contact Section */}
-                        <div className="flex flex-col sm:flex-row gap-16">
-                            {/* Company Links */}
-                            <div className="flex flex-col gap-2">
-                                <p className='font-medium tracking-wide text-[#ffffff]'>Company</p>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>Home</a>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>Features</a>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>Services</a>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>About Us</a>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>Contact Us</a>
-                            </div>
-                            {/* Contact Section */}
-                            <div className="flex flex-col gap-2">
-                                <p className='font-medium tracking-wide text-[#ffffff]'>Contact</p>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>(251) 1234-21313</a>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>www.eventio.com</a>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>eventio@gmail.com</a>
-                                <a href="#" className='text-[#cccccc] hover:text-white'>Addis Ababa, Ethiopia</a>
-                            </div>
-                        </div>
+  //navItems
+  const navItems = [
+    { path: "/", link: "Home" },
+    { path: "/features", link: "Features" },
+    { path: "/how", link: "How it Works" },
+    { path: "/about", link: "About Us" },
+    { path: "/testimonial", link: "Testimonial" },
+    { path: "/blogs", link: "Blog" },
+  ];
 
-                        {/* Subscribe Section */}
-                        <div className='flex flex-col'>
-                            <p className='font-medium tracking-wide text-[#ffffff] mb-4'>Get the latest info</p>
-                            <form className='flex sm:flex-row'>
-                                <input
-                                    type='email'
-                                    placeholder='Email address'
-                                    name='email'
-                                    id='email'
-                                    className='bg-[#4F4F4F] w-full h-12 px-4 transition duration-200 focus:border-purple-400 focus:outline-none rounded-l-xl'
-                                />
-                                <button
-                                    type='submit'
-                                    className='h-12 w-20 px-2 font-medium tracking-wide border-[#35313e] hover:text-white text-[#35313e] transition duration-200 hover:bg-[#4F4F4F] bg-white rounded-r-xl'
-                                >
-                                    Subscribe
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+  return (
+    <header className="bg-[#5516DA] text-white fixed top-0 left-0 right-0 z-50">
+      <nav className="px-4 py-4 max-w-7xl mx-auto flex justify-between items-center">
+        <div className="flex items-center">
+          <div className='flex items-center'>
+            <img src={logo} alt="Logo" className="h-6 px-2 ml-3 sm:ml-9" />
+            <a href="/" className="text-xl text-white">EVENTIO</a>
+          </div>
 
-                    <div className='flex flex-col sm:flex-row justify-between pt-5 pb-10 border-t border-white'>
-                        <p className='text-sm text-white'>© Copyright 2023 | All rights reserved.</p>
-                        <p className='flex items-center mt-2 sm:mt-0 space-x-4 text-white'>User Terms & Condition | Privacy Policy.</p>
-                        <div className='flex items-center mt-2 sm:mt-0 space-x-4'>
-                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F]'>
-                                <FaTwitter className='h-6 w-6' />
-                            </a>
-                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F]'>
-                                <FaInstagram className='h-6 w-6' />
-                            </a>
-                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F]'>
-                                <FaFacebook className='h-6 w-6' />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          {/* navitems for larger screens */}
+          <ul className='hidden md:flex gap-6 text-lg space-x-6 items-center ml-12 sm:ml-32'>
+            {
+              navItems.map(({ path, link }) => (
+                <li className='text-white' key={path}>
+                  <NavLink
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                          ? "pending"
+                          : ""
+                    } to={path}>{link}</NavLink>
+                </li>
+              ))
+            }
+          </ul>
+
+          {/* Desktop buttons */}
+          <div className='hidden lg:flex gap-4 items-center ml-28'>
+            <button className='bg-[#7C4DFF]  px-6 py-2 font-medium rounded-3xl hover:bg-[#35313e] transition-all duration-200 ease-in'>Get the app</button>
+          </div>
         </div>
-    );
-}
 
-export default Footer;
+        {/* Mobile menu button */}
+        <div className='md:hidden ml-auto z-50'>
+          <button onClick={toggleMenu} className='cursor-pointer' aria-label="Toggle Menu">
+            {isMenuOpen ? <FaXmark className='w-6 h-6' /> : <FaBars className='w-6 h-6' />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile menu */}
+      <div className={`md:hidden fixed top-0 right-0 h-full w-64  bg-[#5516DA] transition-transform duration-300 ease-in-out transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} z-40`}>
+        <ul className="space-y-6 p-6 text-center">
+          {
+            navItems.map(({ path, link }) => (
+              <li key={path}>
+                <NavLink
+                  className="text-white text-lg"
+                  onClick={toggleMenu}
+                  to={path}
+                >
+                  {link}
+                </NavLink>
+              </li>
+            ))
+          }
+          <li>
+            <button className="bg-[#7C4DFF]  px-4 py-2 w-full text-white rounded-3xl hover:bg-[#35313e] transition-all duration-200 ease-in">
+              Get the app
+            </button>
+          </li>
+        </ul>
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
