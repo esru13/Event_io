@@ -6,12 +6,13 @@ const Footer = () => {
     return (
         <div>
             <div className='bg-[#7C4DFF] rounded-t-3xl sm:pt-6 mx-4 sm:mx-14 p-4 sm:p-6 text-center'>
-                <p className='text-white text-sm sm:text-base'>Your Destination for Affordable and Exciting Experiences!</p>
-                <h1 className="font-bold text-xl sm:text-3xl text-white mt-2">Download the App Now!</h1> {/* Adjusted margin-top */}
+                <p className='text-white sm:text-lg sm:pr-10'>Your Destination for Affordable and Exciting Experiences!</p>
+                <h1 className="font-bold text-2xl sm:pt-1 sm:text-4xl text-white">Download the App Now!</h1> {/* Adjusted pt-2 to pt-1 */}
             </div>
             <div className='bg-[#5516DA]'>
                 {/* Top Section */}
-                <div className='bg-[#7C4DFF] mx-4 sm:mx-14 p-2 sm:p-4 text-center mb-4 rounded-b-3xl'>
+                <div className='bg-[#7C4DFF] mx-4 sm:mx-14 p-2 sm:p-4 text-center mb-4 rounded-b-3xl'> {/* Adjusted padding */}
+
                     {/* App Store Links Section */}
                     <div className='flex justify-center mb-4'>
                         <div className='flex flex-col sm:flex-row gap-4 sm:pb-0 mx-4 sm:mx-14'>
@@ -24,7 +25,7 @@ const Footer = () => {
                             >
                                 <span className="text-white text-xs ml-2 font-semibold">GET IT ON</span>
                                 <div className="flex items-center">
-                                    <FaGooglePlay className="text-white text-3xl" />
+                                    <FaGooglePlay className="text-white text-3xl " />
                                     <span className="ml-2 text-white font-bold">Google Play</span>
                                 </div>
                             </a>
@@ -45,8 +46,9 @@ const Footer = () => {
                     </div>
                 </div>
 
+
                 {/* Footer Content */}
-                <div className='px-4 pt-6 sm:pt-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-16'>
+                <div className='px-4 pt-6 sm:pt-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-16 '>
                     <div className='flex flex-col sm:flex-row items-start justify-between gap-8 mb-4 -mt-4'>
                         {/* Logo and Eventio */}
                         <div className='flex flex-col items-start flex-shrink-0'>
@@ -59,6 +61,7 @@ const Footer = () => {
                             {/* Circle Section */}
                             <div className='flex mt-4 space-x-4'>
                                 <div className='w-10 h-10 bg-[#D9D9D9] rounded-full'></div>
+
                                 <div className='w-10 h-10 bg-[#D9D9D9] rounded-full'></div>
                                 <div className='w-10 h-10 bg-[#D9D9D9] rounded-full'></div>
                                 <div className='w-10 h-10 bg-[#D9D9D9] rounded-full'></div>
@@ -90,18 +93,9 @@ const Footer = () => {
                         <div className='flex flex-col'>
                             <p className='font-medium tracking-wide text-[#ffffff] mb-4'>Get the latest info</p>
                             <form className='flex sm:flex-row'>
-                                <input
-                                    type='email'
-                                    placeholder='Email address'
-                                    name='email'
-                                    id='email'
-                                    className='bg-[#4F4F4F] w-full h-12 px-4 transition duration-200 focus:border-purple-400 focus:outline-none rounded-l-xl'
-                                />
-                                <button
-                                    type='submit'
-                                    className='h-12 w-20 px-2 font-medium tracking-wide border-[#35313e] hover:text-white text-[#35313e] transition duration-200 hover:bg-[#4F4F4F] bg-white rounded-r-xl'
-                                >
-                                    Subscribe
+                                <input type='email' placeholder='Email address' name='email' id='email' className='bg-[#4F4F4F] w-full h-12 px-4 transition duration-200 focus:border-purple-400 focus:outline-none rounded-l-xl' />
+                                <button type='submit' className='h-12 w-20 px-2 font-medium tracking-wide border-[#35313e] hover:text-[#D9D9D9] text-[#35313e] transition duration-200 hover:bg-[#4F4F4F]  bg-white rounded-r-xl'>
+
                                 </button>
                             </form>
                         </div>
@@ -111,15 +105,9 @@ const Footer = () => {
                         <p className='text-sm text-white'>© Copyright 2023 | All rights reserved.</p>
                         <p className='flex items-center mt-2 sm:mt-0 space-x-4 text-white'>User Terms & Condition | Privacy Policy.</p>
                         <div className='flex items-center mt-2 sm:mt-0 space-x-4'>
-                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F]'>
-                                <FaTwitter className='h-6 w-6' />
-                            </a>
-                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F]'>
-                                <FaInstagram className='h-6 w-6' />
-                            </a>
-                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F]'>
-                                <FaFacebook className='h-6 w-6' />
-                            </a>
+                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F] '><FaTwitter className='h-6 w-6' /></a>
+                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F] '><FaInstagram className='h-6 w-6' /></a>
+                            <a href='' className='text-white transition-all duration-300 hover:text-[#4F4F4F] '><FaFacebook className='h-6 w-6' /></a>
                         </div>
                     </div>
                 </div>
