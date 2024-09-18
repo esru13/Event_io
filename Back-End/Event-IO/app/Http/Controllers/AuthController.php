@@ -43,10 +43,11 @@ class AuthController extends Controller
             'role' => $validated['role'],
 
         ]);
-
+        $token = $user->createToken('auth_token')->plainTextToken;
         return response()->json([
             'message' => 'user registered successfully',
             'user' => new UserResource($user),
+            'token' => $token
         ],201);
     }
 
