@@ -6,6 +6,7 @@ use App\Http\Requests\UserRegistrationRequest;
 use App\Http\Requests\EventOrgRegisterRequest;
 use App\Http\Requests\EventOrgLoginRequest;
 use App\Http\Requests\UpdatePassword;
+use App\Http\Requests\ProfileRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -124,6 +125,32 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Password updated successfully'
+        ], 200);
+    }
+
+    public function getUser(): JsonResponse
+    {
+        $user = Auth::user();
+
+        return response()->json([
+            'user' => new UserResource($user)
+        ], 200);
+    }
+
+    public function UpdateProfile(ProfileRequest $request): JsonResponse
+    {
+        $user = auth()->user();
+
+        $user -> update($request->only([
+            'first_name',
+            'last_name',
+            'date_of_birth',
+            'email',
+            'phone_number',
+        ]));
+        return response()->json([
+            'message' => 'Profile updated successfully',
+            'user' => new UserResource($user),
         ], 200);
     }
 };
