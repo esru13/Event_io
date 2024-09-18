@@ -23,11 +23,12 @@ class EventRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id' => 'integer',
             'title' => 'required|string',
             'description' => 'required|string',
             'event_date' => 'required|date',
-            'start_time' => 'required|date_format:H:i', 
-            'end_time' => 'required|date_format:H:i|after:start_time',   
+            'start_time' => 'required', 
+            'end_time' => 'required|after:start_time',   
             'location' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'normal_seats' => 'required|integer',
@@ -36,6 +37,9 @@ class EventRequest extends FormRequest
             'vip_price' => 'numeric',
             'image' => 'image',
             'restriction' => 'required|string',
+            'location_link' => 'required|string',
+            'country' => 'required|string',
+            'phone_number' => 'required|numeric',
         ];
     }
 }

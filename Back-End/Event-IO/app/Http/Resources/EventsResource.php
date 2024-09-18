@@ -30,6 +30,8 @@ class EventsResource extends JsonResource
             'vip_price' => $this->vip_price,
             'image' => $this->image ? url($this->image) : null, 
             'restriction' => $this->restriction,
+            'country' => $this->country,
+            'phone_number' => $this->phone_number,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(), 
         ];
