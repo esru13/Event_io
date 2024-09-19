@@ -52,7 +52,7 @@ const FAQItem = ({ question, answer }) => {
 
 const EventTicketFAQ = () => {
   return (
-    <div className="w-full min-h-screen bg-blue-50 px-6 py-24">
+    <div className="w-full min-h-screen bg-[#F3F4FF] px-6 py-24">
       <h2 className="text-2xl font-bold text-center mb-8">- FAQ</h2>
       <h2 className="text-3xl font-bold text-center mb-12">
        <span className="text-[#5516DA]">Questions?</span> Find Answers Here
