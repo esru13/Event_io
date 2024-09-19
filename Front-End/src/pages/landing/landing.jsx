@@ -1,15 +1,21 @@
 import React from "react";
-
-import Navland from "../../component/navland/navland";
-
-
+import Banner from "../../component/Banner";
+import Footer from "../../component/Footer";
+import Navbar from "../../component/Navbar"; 
+import EventTicketFAQ from "../../component/EventTicketFAQ";
+import Testimonial from "../../component/Testimonial";
+import Brand from "../../component/Brand"; 
 
 function Landing() {
-
   return (
-    <Navland>
-      
-    </Navland>
+    <>
+      <Navbar /> 
+      <Banner />
+      <Brand /> 
+      <Testimonial />
+      <EventTicketFAQ />
+      <Footer />
+    </>
   );
 }
 
