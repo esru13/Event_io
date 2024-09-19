@@ -9,6 +9,8 @@ import User from "./pages/user/user";
 import UserManagement from "./pages/usermanagement/usermanagement";
 import Signup from "./pages/signup/signup";
 import Signin from "./pages/signin/signin";
+import Landing from "./pages/landing/landing";
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path="/usermanagement" element={<UserManagement />} />
         <Route path="/Manageevent" element={<Manageevent />} />
         <Route path="/user" element={<User />} />
+        <Route path="/landing" element={<Landing />} />
       </Routes>
     </div>
   );
