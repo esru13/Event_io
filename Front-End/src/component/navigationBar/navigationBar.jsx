@@ -22,7 +22,6 @@ function NavigationBar() {
               placeholder="Search here..."
               className="text-[#A098AE] outline-none border-none placeholder:text-[#A098AE] pl-12 pr-4 rounded-3xl h-full w-full bg-custom"
             />
-            <VscListFilter size={24} color="#5516DA" className="absolute right-4" />
           </div>
           <div className="flex justify-center items-center gap-5 relative">
             <div className="flex justify-center items-center h-12 w-12 rounded-full bg-custom">
