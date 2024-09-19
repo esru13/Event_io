@@ -15,11 +15,11 @@ const Navbar = () => {
   //navItems
   const navItems = [
     { path: "/", link: "Home" },
-    { path: "/features", link: "Features" },
-    { path: "/how", link: "How it Works" },
-    { path: "/about", link: "About Us" },
-    { path: "/testimonial", link: "Testimonial" },
-    { path: "/blogs", link: "Blog" },
+    { path: "/", link: "Features" },
+    { path: "/", link: "How it Works" },
+    { path: "/", link: "About Us" },
+    { path: "/", link: "Testimonial" },
+    { path: "/", link: "Blog" },
   ];
 
   return (

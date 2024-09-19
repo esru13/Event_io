@@ -1,21 +1,21 @@
 import React from 'react';
 import logo from "/ticket.png";
-import { FaFacebook, FaInstagram, FaTwitter, FaGooglePlay, FaApple, FaLinkedin } from "react-icons/fa"; // Import LinkedIn icon
+import { FaFacebook, FaInstagram, FaTwitter, FaGooglePlay, FaApple, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div>
+        <div className='w-full bg-blue-50'>
+            {/* Top Banner Section */}
             <div className='bg-[#7C4DFF] rounded-t-3xl sm:pt-6 mx-4 sm:mx-14 p-4 sm:p-6 text-center'>
                 <p className='text-white sm:text-lg sm:pr-10'>Your Destination for Affordable and Exciting Experiences!</p>
                 <h1 className="font-bold text-2xl sm:pt-1 sm:text-4xl text-white">Download the App Now!</h1> 
             </div>
+
             <div className='bg-[#5516DA]'>
-                {/* Top Section */}
+                {/* App Store Links Section */}
                 <div className='bg-[#7C4DFF] mx-4 sm:mx-14 p-2 sm:p-4 text-center mb-4 rounded-b-3xl'> 
-                    {/* App Store Links Section */}
                     <div className='flex justify-center mb-4'>
                         <div className='flex flex-col sm:flex-row gap-4 sm:pb-0 mx-4 sm:mx-14'>
-                            {/* Google Play Button */}
                             <a
                                 href="https://play.google.com/store"
                                 target="_blank"
@@ -24,11 +24,10 @@ const Footer = () => {
                             >
                                 <span className="text-white text-xs ml-2 font-semibold">GET IT ON</span>
                                 <div className="flex items-center">
-                                    <FaGooglePlay className="text-white text-3xl " />
+                                    <FaGooglePlay className="text-white text-3xl" />
                                     <span className="ml-2 text-white font-bold">Google Play</span>
                                 </div>
                             </a>
-                            {/* App Store Button */}
                             <a
                                 href="https://apps.apple.com/"
                                 target="_blank"
@@ -45,8 +44,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Footer Content */}
-                <div className='px-4 pt-6 sm:pt-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-16 '>
+                {/* Footer Content Section */}
+                <div className='px-4 pt-6 sm:pt-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-16'>
                     <div className='flex flex-col sm:flex-row items-start justify-between gap-8 mb-4 -mt-4'>
                         {/* Logo and Eventio */}
                         <div className='flex flex-col items-start flex-shrink-0'>
@@ -57,14 +56,14 @@ const Footer = () => {
                             <p className='text-[#ffffff]'>Your gateway to unforgettable events.</p>
 
                             {/* Social Media Icons Section */}
-                            <div className='flex mt-4 space-x-4'>
+                            <div className='flex mt-4 space-x-6'>
                                 <a
                                     href='https://twitter.com'
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className='transition-all duration-300'
                                 >
-                                    <FaTwitter className='text-white text-3xl hover:text-black' />
+                                    <FaTwitter className='text-white text-4xl hover:text-black' />
                                 </a>
                                 <a
                                     href='https://instagram.com'
@@ -72,7 +71,7 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     className='transition-all duration-300'
                                 >
-                                    <FaInstagram className='text-white text-3xl hover:text-black' />
+                                    <FaInstagram className='text-white text-4xl hover:text-black' />
                                 </a>
                                 <a
                                     href='https://facebook.com'
@@ -80,16 +79,15 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     className='transition-all duration-300'
                                 >
-                                    <FaFacebook className='text-white text-3xl hover:text-black' />
+                                    <FaFacebook className='text-white text-4xl hover:text-black' />
                                 </a>
-                                {/* LinkedIn Icon */}
                                 <a
                                     href='https://linkedin.com'
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className='transition-all duration-300'
                                 >
-                                    <FaLinkedin className='text-white text-3xl hover:text-black' />
+                                    <FaLinkedin className='text-white text-4xl hover:text-black' />
                                 </a>
                             </div>
                         </div>
@@ -120,11 +118,10 @@ const Footer = () => {
                             <p className='font-medium tracking-wide text-[#ffffff] mb-4'>Get the latest info</p>
                             <form className='flex sm:flex-row'>
                                 <input type='email' placeholder='Email address' name='email' id='email' className='bg-[#4F4F4F] w-full h-12 px-4 transition duration-200 focus:border-purple-400 focus:outline-none rounded-l-xl' />
-                                <button type='submit' className='h-12 w-20 px-2 font-medium tracking-wide border-[#35313e] hover:text-[#D9D9D9] text-[#35313e] transition duration-200 hover:bg-[#4F4F4F]  bg-white rounded-r-xl'></button>
+                                <button type='submit' className='h-12 w-20 px-2 font-medium tracking-wide border-[#35313e] hover:text-[#D9D9D9] text-[#35313e] transition duration-200 hover:bg-[#4F4F4F] bg-white rounded-r-xl'></button>
                             </form>
                         </div>
                     </div>
-
 
                     <div className='flex flex-col sm:flex-row justify-between pt-5 pb-10 border-t border-white'>
                         <p className='text-sm text-white'>© Copyright 2023 | All rights reserved.</p>
