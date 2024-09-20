@@ -16,10 +16,11 @@ function SideBar() {
         background: "linear-gradient(to bottom, #5516DA, #2D0C74)"
       }}
     >
-      <div className="flex justify-center items-center py-5">
-        <MdConfirmationNumber size={28} className="text-[#C1BBEB] mr-2" />
-        <h1 className="text-[#C1BBEB] font-bold text-2xl">EVENTIO</h1>
-      </div>
+    <div className="flex justify-center items-center py-5">
+  <img src="/ticket.png" alt="Ticket Icon" className="w-7 h-7 mr-2" />
+  <h1 className="text-[#C1BBEB] font-bold text-2xl">EVENTIO</h1>
+</div>
+
 
       <div className="flex flex-col pt-3 pb-5">
         {Data.map((items, index) => {
