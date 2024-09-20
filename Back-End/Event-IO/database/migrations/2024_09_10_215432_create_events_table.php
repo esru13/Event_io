@@ -27,6 +27,8 @@ return new class extends Migration
             $table->decimal('vip_price', 8, 2)->nullable();
             $table->string('image')->nullable(); 
             $table->text('restriction')->nullable(); 
+            $table->string('country');
+            $table->integer('phone_number');
             $table->timestamps();
             $table->softDeletes(); 
         });
