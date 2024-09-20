@@ -24,6 +24,7 @@ class CategoryRequest extends FormRequest
         return [
             'name' => 'required|string|unique:categories,name', 
             'description' => 'required|string',
+            'icon' => 'string',
         ];
     }
 }
