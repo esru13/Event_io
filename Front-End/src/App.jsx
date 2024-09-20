@@ -16,7 +16,8 @@ function App() {
   return (
     <div className="bg-custom z-0">
       <Routes>
-      <Route path="/" element={<Signin />} />
+      <Route path="/" element={<Landing />} />
+      <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/newevent" element={<Newevent />} />

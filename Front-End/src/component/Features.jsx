@@ -1,11 +1,14 @@
 import React from "react";
+import img1 from "/assets/1.png";  // Importing the first image from assets
+import img2 from "/assets/2.png";  // Importing the second image from assets
+import img3 from "/assets/3.png";  // Importing the third image from assets
 
 const Features = () => {
   const cardData = [
     {
       title1: "Explore Your",
       title2: "Event",
-      img: "https://res.cloudinary.com/dltnxkfrn/image/upload/v1726757390/Screenshot_774_2_qlmlwk.png",
+      img: img1,  // Using 1.png for the first card
       description:
         "Explore events across categories—music, art, sports, and more. Find what excites you and make memories",
       position: true,
@@ -13,7 +16,7 @@ const Features = () => {
     {
       title1: "Select Your",
       title2: "Events",
-      img: "https://res.cloudinary.com/dltnxkfrn/image/upload/v1726757390/Screenshot_776_1_yk5age.png",
+      img: img2,  // Using 2.png for the second card
       description:
         "Choose from a variety of events that match your interests. Find your favorites and get ready to attend!",
       position: false,
@@ -21,7 +24,7 @@ const Features = () => {
     {
       title1: "Buy Your",
       title2: "Ticket",
-      img: "https://res.cloudinary.com/dltnxkfrn/image/upload/v1726757390/Screenshot_778_1_sxvn4g.png",
+      img: img3,  // Using 3.png for the third card
       description:
         "Easily purchase tickets with a few clicks. Secure your spot and get ready for an unforgettable experience!",
       position: true,
@@ -32,9 +35,10 @@ const Features = () => {
     <div className="py-40 bg-[#F3F4FF] text-center text-white">
       <div className="flex flex-col w-full h-[500px] bg-gradient-to-br bg-black pl-3 md:pl-20 lg:pl-40 pt-16">
         <div className="flex flex-col w-fit justify-left">
-          <h1 className="text-lg font-bold text-white text-left pl-5 mb-5">
-            Best Features
-          </h1>
+        <h1 className="text-lg font-bold text-white text-left mb-5">
+  Best <span className="text-[#5516DA]">Features</span>
+</h1>
+
           <h1 className="font-bold text-white text-left text-3xl mb-1">
             Key Features of Our
           </h1>
@@ -58,7 +62,6 @@ const Features = () => {
     </div>
   );
 };
-
 const Card = ({ title1, title2, description, img, position }) => {
   return (
     <div className="w-[400px] h-[597px] flex-shrink-0 rounded-[28px] bg-white flex justify-center items-center flex-col p-5 hover:scale-105 cursor-pointer transition-all duration-300">

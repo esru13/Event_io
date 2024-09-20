@@ -20,9 +20,10 @@ const How = () => {
   return (
     <div>
       <div className="bg-[#F3F4FF] text-center text-black px-4"> {/* Reduced padding from pt-28 to pt-16 */}
-        <h2 className="text-base leading-snug font-semibold mb-3">
-          - How it works?
-        </h2>
+      <h2 className="text-xl leading-snug font-semibold mb-3">
+  - How it <span className="text-[#5516DA]">works</span>?
+</h2>
+
         <h2 className="text-2xl leading-snug font-bold">
           How it works? A step by step Guide
         </h2>

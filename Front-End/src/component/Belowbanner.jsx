@@ -85,9 +85,10 @@ const Belowbanner = () => {
       {/* Benefits Section */}
       <section className="bg-[#F3F4FF] py-1 text-center min-h-screen flex flex-col items-center justify-center">
       <div className="text-center">
-        <h2 className="text-xl text-gray-600 mb-4">
-          - Benefits of Our <span className="text-[#5516DA]">Eventio</span>
-        </h2>
+      <h2 className="text-xl text-black font-bold mb-4">
+  - Benefits of Our <span className="text-[#5516DA]">Eventio</span>
+</h2>
+
         <h3 className="text-2xl font-bold mb-8">
           Our <span className="text-[#5516DA]">Event Booking</span> app provides
         </h3>

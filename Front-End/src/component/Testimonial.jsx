@@ -59,7 +59,7 @@ const Testimonial = () => {
   return (
     <div className="w-full min-h-screen bg-[#F3F4FF] px-6 py-24 relative">
       <div className="text-center mb-12">
-        <h2 className="text-2xl font-bold mb-2">- Testimonial</h2>
+        <h2 className="text-xl text-[#5516DA] font-bold mb-2">- Testimonial</h2>
         <h3 className="text-3xl font-bold">Our customer testimonials</h3>
       </div>
       <div className="relative flex flex-col items-center">

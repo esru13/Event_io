@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from "/ticket.png";
 import { FaFacebook, FaInstagram, FaTwitter, FaGooglePlay, FaApple, FaLinkedin } from "react-icons/fa";
+import { FaPaperPlane } from 'react-icons/fa';
+import { Link } from 'react-scroll';
 
 const Footer = () => {
     return (
@@ -96,13 +98,15 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row gap-16">
                 {/* Company Links */}
                 <div className="flex flex-col gap-2">
-                    <p className='font-medium tracking-wide text-[#ffffff]'>Company</p>
-                    <a href="#" className='text-[#cccccc] hover:text-white'>Home</a>
-                    <a href="#" className='text-[#cccccc] hover:text-white'>Features</a>
-                    <a href="#" className='text-[#cccccc] hover:text-white'>Services</a>
-                    <a href="#" className='text-[#cccccc] hover:text-white'>About Us</a>
-                    <a href="#" className='text-[#cccccc] hover:text-white'>Contact Us</a>
-                </div>
+    <p className='font-medium tracking-wide text-[#ffffff]'>Company</p>
+    <Link to="home" smooth={true} duration={500} className='text-[#cccccc] hover:text-white cursor-pointer'>Home</Link>
+    <Link to="features" smooth={true} duration={500} className='text-[#cccccc] hover:text-white cursor-pointer'>Features</Link>
+    <Link to="services" smooth={true} duration={500} className='text-[#cccccc] hover:text-white cursor-pointer'>Services</Link>
+    <Link to="aboutus" smooth={true} duration={500} className='text-[#cccccc] hover:text-white cursor-pointer'>About Us</Link>
+    <Link to="contactus" smooth={true} duration={500} className='text-[#cccccc] hover:text-white cursor-pointer'>Contact Us</Link>
+</div>
+
+
                 {/* Contact Section */}
                 <div className="flex flex-col gap-2">
                     <p className='font-medium tracking-wide text-[#ffffff]'>Contact</p>
@@ -115,16 +119,19 @@ const Footer = () => {
 
             {/* Subscribe Section */}
             <div className='flex flex-col'>
-                <p className='font-medium tracking-wide text-[#ffffff] mb-4'>Get the latest info</p>
-                <form className='flex sm:flex-row'>
-                    <input type='email' placeholder='Email address' name='email' id='email' className='bg-[#4F4F4F] w-full h-12 px-4 transition duration-200 focus:border-purple-400 focus:outline-none rounded-l-xl' />
-                    <button type='submit' className='h-12 w-20 px-2 font-medium tracking-wide border-[#35313e] hover:text-[#D9D9D9] text-[#35313e] transition duration-200 hover:bg-[#4F4F4F] bg-white rounded-r-xl'></button>
-                </form>
-            </div>
+  <p className='font-medium tracking-wide text-[#ffffff] mb-4'>Get the latest info</p>
+  <form className='flex sm:flex-row'>
+    <input type='email' placeholder='Email address' name='email' id='email' className='bg-[#4F4F4F] w-full h-12 px-4 transition duration-200 focus:border-purple-400 focus:outline-none rounded-l-xl' />
+    <button type='submit' className='h-12 w-20 px-2 font-medium tracking-wide border-[#35313e] hover:text-[#D9D9D9] text-[#35313e] transition duration-200 hover:bg-[#4F4F4F] bg-white rounded-r-xl flex items-center justify-center'>
+      <FaPaperPlane className="w-5 h-5" />
+    </button>
+  </form>
+</div>
+
         </div>
 
         <div className='flex flex-col sm:flex-row justify-between pt-5 pb-10 border-t border-white'>
-            <p className='text-sm text-white'>© Copyright 2023 | All rights reserved.</p>
+            <p className='text-sm text-white'>© Copyright 2024 | All rights reserved.</p>
             <p className='flex items-center mt-2 sm:mt-0 space-x-4 text-white'>User Terms & Condition | Privacy Policy.</p>
         </div>
     </div>
