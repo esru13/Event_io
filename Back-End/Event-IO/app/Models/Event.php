@@ -24,7 +24,9 @@ class Event extends Model
         'vip_seats',
         'vip_price',
         'image',
-        'restriction'
+        'restriction',
+        'country',
+        'phone_number',
     ];
 
     /**

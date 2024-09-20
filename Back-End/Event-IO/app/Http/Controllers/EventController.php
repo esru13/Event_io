@@ -102,4 +102,12 @@ class EventController extends Controller
 
         return response()->json(['message' => 'Event deleted successfully'], 200);
     }
+    public function getEvent($id): JsonResponse
+    {
+        $event = Event::findOrFail($id);
+
+        return response()->json([
+            'event' => $event,
+        ], 200);
+    }
 }

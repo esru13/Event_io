@@ -35,8 +35,7 @@ class CategoryController extends Controller
     }
     public function UpdateCategory(CategoryRequest $request, $id): JsonResponse
     {
-        $validator = $request->validated();
-
+       
         $category = Category::find($id);
 
         if (!$category) {
