@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::post('register/eventOrg', [AuthController::class, 'registerEventOrganizer
 Route::post('login/eventOrg', [AuthController::class, 'loginEventOrg']);
 Route::get('categories', [CategoryController::class, 'GetCategories']);
 Route::get('events', [EventController::class, 'events']);
+Route::get('event/{id}', [EventController::class, 'getEvent']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout/', [AuthController::class, 'logout']);
@@ -35,7 +37,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [AuthController::class, 'getUser']);
     Route::post('update/profile', [AuthController::class, 'UpdateProfile']);
 });
-
+Route::middleware(['auth:sanctum', 'user'])->group(function () {
+    Route::post('select/ticket/{eventId}', [TicketController::class, 'selectTicket']);
+    Route::post('buy/ticket/{eventId}', [TicketController::class, 'buyTicket']);
+});
 Route::middleware(['auth:sanctum', 'event_organizer'])->group(function () {
     Route::post('add/categories', [CategoryController::class, 'CreateCategory']);
     Route::put('update/categories/{id}', [CategoryController::class, 'UpdateCategory']);
