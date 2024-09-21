@@ -38,47 +38,55 @@ const Belowbanner = () => {
           
           {/* Right side: Boxes centered */}
           <div className="lg:w-1/2 flex justify-center items-center mt-1 lg:mt-0">
-            <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
-              <div className="w-64 h-64 bg-[#E1DCFF] rounded-3xl shadow-lg border-2 border-gray p-4 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold text-[#5516DA] mb-2">For iOS</h3>
-                  <p className="text-gray-600 mb-4">iOS 15.6+</p>
-                  <button className="bg-[#5516DA] text-white px-4 py-2 rounded-full mb-4">Download App</button>
-                </div>
-                <div className="flex items-center justify-between">
-                  <img 
-                    src="assets/qr.png" 
-                    alt="QR Code" 
-                    className="w-16 h-16" 
-                  />
-                  <img 
-                    src="assets/apple.png" 
-                    alt="Apple Icon" 
-                    className="w-16 h-16" 
-                  />
-                </div>
-              </div>
-              <div className="w-64 h-64 bg-[#E1DCFF] rounded-3xl shadow-lg border-2 border-gray p-4 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold text-[#5516DA] mb-2">For Android</h3>
-                  <p className="text-gray-600 mb-4">Android 7.0+</p>
-                  <button className="bg-[#5516DA] text-white px-4 py-2 rounded-full mb-4">Download App</button>
-                </div>
-                <div className="flex items-center justify-between">
-                  <img 
-                    src="assets/qr.png" 
-                    alt="QR Code" 
-                    className="w-16 h-16" 
-                  />
-                  <img 
-                    src="assets/android.png" 
-                    alt="Android Icon" 
-                    className="w-16 h-16" 
-                  />
-                </div>
-              </div> 
-            </div>
-          </div>
+  <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+    {/* iOS Download Card */}
+    <div className="w-64 h-64 bg-[#E1DCFF] rounded-3xl shadow-lg border-2 border-gray-200 p-4 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
+      <div>
+        <h3 className="text-xl font-semibold text-[#5516DA] mb-2">For iOS</h3>
+        <p className="text-gray-600 mb-4">iOS 15.6+</p>
+        <button className="bg-[#5516DA] text-white px-4 py-2 rounded-full mb-4 hover:bg-[#430fb7] transition-all duration-300">
+          Download App
+        </button>
+      </div>
+      <div className="flex items-center justify-between">
+        <img 
+          src="assets/qr.png" 
+          alt="QR Code" 
+          className="w-16 h-16 hover:scale-105 transition-transform duration-300" 
+        />
+        <img 
+          src="assets/apple.png" 
+          alt="Apple Icon" 
+          className="w-16 h-16 hover:scale-105 transition-transform duration-300" 
+        />
+      </div>
+    </div>
+
+    {/* Android Download Card */}
+    <div className="w-64 h-64 bg-[#E1DCFF] rounded-3xl shadow-lg border-2 border-gray-200 p-4 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
+      <div>
+        <h3 className="text-xl font-semibold text-[#5516DA] mb-2">For Android</h3>
+        <p className="text-gray-600 mb-4">Android 7.0+</p>
+        <button className="bg-[#5516DA] text-white px-4 py-2 rounded-full mb-4 hover:bg-[#430fb7] transition-all duration-300">
+          Download App
+        </button>
+      </div>
+      <div className="flex items-center justify-between">
+        <img 
+          src="assets/qr.png" 
+          alt="QR Code" 
+          className="w-16 h-16 hover:scale-105 transition-transform duration-300" 
+        />
+        <img 
+          src="assets/android.png" 
+          alt="Android Icon" 
+          className="w-16 h-16 hover:scale-105 transition-transform duration-300" 
+        />
+      </div>
+    </div> 
+  </div>
+</div>
+
         </div>
       </section>
 

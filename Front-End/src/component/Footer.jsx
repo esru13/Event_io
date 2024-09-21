@@ -16,35 +16,39 @@ const Footer = () => {
             <div className='bg-gradient-to-b from-[#5516DA] to-black'>
     {/* App Store Links Section */}
     <div className='bg-[#7C4DFF] mx-4 sm:mx-14 p-2 sm:p-4 text-center mb-4 rounded-b-3xl'> 
-        <div className='flex justify-center mb-4'>
-            <div className='flex flex-col sm:flex-row gap-4 sm:pb-0 mx-4 sm:mx-14'>
-                <a
-                    href="https://play.google.com/store"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-red-200 flex flex-col items-center p-3 bg-[#611df4] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                >
-                    <span className="text-white text-xs ml-2 font-semibold">GET IT ON</span>
-                    <div className="flex items-center">
-                        <FaGooglePlay className="text-white text-3xl" />
-                        <span className="ml-2 text-white font-bold">Google Play</span>
-                    </div>
-                </a>
-                <a
-                    href="https://apps.apple.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border border-red-200 flex flex-col items-center p-3 bg-[#611df4] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                >
-                    <span className="pl-10 text-white text-xs font-semibold">Download on the</span>
-                    <div className="flex items-center">
-                        <FaApple className="text-white text-3xl" />
-                        <span className="ml-2 text-xl text-white font-medium">App Store</span>
-                    </div>
-                </a>
-            </div>
+    <div className='flex justify-center mb-4'>
+        <div className='flex flex-col sm:flex-row gap-4 sm:pb-0 mx-4 sm:mx-14'>
+            {/* Google Play Button */}
+            <a
+                href="https://play.google.com/store"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-red-200 flex flex-col items-center p-3 bg-[#611df4] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-[#5516DA] hover:-translate-y-1 transform hover:scale-105"
+            >
+                <span className="text-white text-xs ml-2 font-semibold">GET IT ON</span>
+                <div className="flex items-center">
+                    <FaGooglePlay className="text-white text-3xl" />
+                    <span className="ml-2 text-white font-bold">Google Play</span>
+                </div>
+            </a>
+
+            {/* App Store Button */}
+            <a
+                href="https://apps.apple.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-red-200 flex flex-col items-center p-3 bg-[#611df4] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-[#5516DA] hover:-translate-y-1 transform hover:scale-105"
+            >
+                <span className="pl-10 text-white text-xs font-semibold">Download on the</span>
+                <div className="flex items-center">
+                    <FaApple className="text-white text-3xl" />
+                    <span className="ml-2 text-xl text-white font-medium">App Store</span>
+                </div>
+            </a>
         </div>
     </div>
+</div>
+
 
     {/* Footer Content Section */}
     <div className='px-4 pt-6 sm:pt-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-16'>

@@ -34,7 +34,7 @@ const Features = () => {
   return (
     <div className="py-40 bg-[#F3F4FF] text-center text-white">
       <div className="flex flex-col w-full h-[500px] bg-gradient-to-br bg-black pl-3 md:pl-20 lg:pl-40 pt-16">
-        <div className="flex flex-col w-fit justify-left">
+        <div className=" flex flex-col w-fit justify-left">
         <h1 className="text-lg font-bold text-white text-left mb-5">
   Best <span className="text-[#5516DA]">Features</span>
 </h1>
