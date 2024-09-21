@@ -23,17 +23,17 @@ class EventsResource extends JsonResource
             'end_time' => $this->end_time,
             'location' => $this->location,
             'category' => $this->category ? $this->category->name : null, 
-            'organizer' => $this->organizer ? $this->organizer->name : null, 
+            'organizer' => $this->organizer ? $this->organizer->full_name : null,
             'normal_seats' => $this->normal_seats,
             'normal_price' => $this->normal_price,
             'vip_seats' => $this->vip_seats,
             'vip_price' => $this->vip_price,
-            'image' => $this->image ? url($this->image) : null, 
+            'image' => $this->image ? url($this->image) : null,
             'restriction' => $this->restriction,
             'country' => $this->country,
             'phone_number' => $this->phone_number,
             'created_at' => $this->created_at->toDateTimeString(),
-            'updated_at' => $this->updated_at->toDateTimeString(), 
+            'updated_at' => $this->updated_at->toDateTimeString(),
         ];
     }
 }

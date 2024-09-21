@@ -10,25 +10,23 @@ use Illuminate\Http\JsonResponse;
 class EventController extends Controller
 {
     public function events(){
-        $events = Event::all();
 
         $events = Event::with('organizer')->get();
-
-        \Log::info($events);
         
         return response()->json([
             'events' => EventsResource::collection($events), 
         ], 200);
     }
+
     public function createEvent(EventRequest $request): JsonResponse
     {
-        
+        $imagePath = null;
+
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/images');
-        } else {
-            $imagePath = null;
+            $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('images'), $filename);
+            $imagePath = 'images/' . $filename; 
         }
-    
         $event = Event::create([
             'title' => $request->title,
             'description' => $request->description,
@@ -42,13 +40,13 @@ class EventController extends Controller
             'normal_price' => $request->normal_price,
             'vip_seats' => $request->vip_seats,
             'vip_price' => $request->vip_price,
-            'image' => $imagePath,
+            'image' => $imagePath,  
             'restriction' => $request->restriction,
-            'location_link' => $request->location_link, 
+            'location_link' => $request->location_link,
             'country' => $request->country,
             'phone_number' => $request->phone_number,
         ]);
-    
+
         return response()->json([
             'message' => 'Event created successfully',
             'event' => $event,
@@ -57,7 +55,6 @@ class EventController extends Controller
 
     public function UpdateEvent(EventRequest $request, $id): JsonResponse
     {
-       
         $event = Event::findOrFail($id);
         $authenticatedUser = auth()->user();
         
@@ -91,6 +88,7 @@ class EventController extends Controller
     public function DeleteEvent($id): JsonResponse
     {
         $event = Event::findOrFail($id);
+        
         $authenticatedUser = auth()->user();
         
         if ($authenticatedUser->id !== $event->organizer_id) {
@@ -106,8 +104,10 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
+        $events = Event::with('organizer')->get();
+
         return response()->json([
-            'event' => $event,
+            'events' => EventsResource::collection($events), 
         ], 200);
     }
 }
