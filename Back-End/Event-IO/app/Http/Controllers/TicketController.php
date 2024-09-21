@@ -46,45 +46,45 @@ class TicketController extends Controller
         ], 200);
     }
 
-    // public function buyTicket(Request $request, $eventId): JsonResponse
-    // {
-    //     $request->validate([
-    //         'ticket_type' => 'required|string|in:normal,vip',
-    //         'quantity' => 'required|integer|min:1',
-    //     ]);
+    public function buyTicket(Request $request, $eventId): JsonResponse
+    {
+        $request->validate([
+            'ticket_type' => 'required|string|in:normal,vip',
+            'quantity' => 'required|integer|min:1',
+        ]);
 
-    //     $event = Event::find($eventId);
+        $event = Event::find($eventId);
 
-    //     if (!$event) {
-    //         return response()->json(['message' => 'Event not found.'], 404);
-    //     }
+        if (!$event) {
+            return response()->json(['message' => 'Event not found.'], 404);
+        }
 
-    //     $ticketPrice = $request->ticket_type === 'normal' ? $event->normal_price : $event->vip_price;
-    //     $availableSeats = $request->ticket_type === 'normal' ? $event->normal_seats : $event->vip_seats;
+        $ticketPrice = $request->ticket_type === 'normal' ? $event->normal_price : $event->vip_price;
+        $availableSeats = $request->ticket_type === 'normal' ? $event->normal_seats : $event->vip_seats;
 
-    //     if ($availableSeats < $request->quantity) {
-    //         return response()->json(['message' => 'Not enough seats available.'], 400);
-    //     }
+        if ($availableSeats < $request->quantity) {
+            return response()->json(['message' => 'Not enough seats available.'], 400);
+        }
 
-    //     $ticket = Ticket::create([
-    //         'event_id' => $eventId, 
-    //         'user_id' => Auth::id(),
-    //         'quantity' => $request->quantity,
-    //         'total_price' => $request->quantity * $ticketPrice,
-    //         'payment_status' => 'pending',
-    //     ]);
+        $ticket = Ticket::create([
+            'event_id' => $eventId, 
+            'user_id' => Auth::id(),
+            'quantity' => $request->quantity,
+            'total_price' => $request->quantity * $ticketPrice,
+            'payment_status' => 'pending',
+        ]);
 
-    //     if ($request->ticket_type === 'normal') {
-    //         $event->normal_seats -= $request->quantity;
-    //     } else {
-    //         $event->vip_seats -= $request->quantity;
-    //     }
-    //     $event->save();
+        if ($request->ticket_type === 'normal') {
+            $event->normal_seats -= $request->quantity;
+        } else {
+            $event->vip_seats -= $request->quantity;
+        }
+        $event->save();
 
-    //     return response()->json([
-    //         'message' => 'Ticket purchased successfully.',
-    //         'ticket' => $ticket,
-    //     ], 201);
-    // }
+        return response()->json([
+            'message' => 'Ticket purchased successfully.',
+            'ticket' => $ticket,
+        ], 201);
+    }
 
 }
