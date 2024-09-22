@@ -32,7 +32,7 @@ class EventRequest extends FormRequest
             'location' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'normal_seats' => 'required|integer',
-            'normal_price' => 'required|numeric',
+            'normal_price' => 'numeric',
             'vip_seats' => 'integer',
             'vip_price' => 'numeric',
             'image' => 'image',

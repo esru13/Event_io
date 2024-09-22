@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->foreignId('organizer_id')->constrained('users')->onDelete('cascade');
             $table->integer('normal_seats'); 
-            $table->decimal('normal_price', 8, 2);
+            $table->decimal('normal_price', 8, 2)->nullable();
             $table->integer('vip_seats')->nullable();
             $table->decimal('vip_price', 8, 2)->nullable();
             $table->string('image')->nullable(); 
