@@ -102,12 +102,10 @@ class EventController extends Controller
     }
     public function getEvent($id): JsonResponse
     {
-        $event = Event::findOrFail($id);
-
-        $events = Event::with('organizer')->get();
+        $event = Event::with('organizer')->findOrFail($id);
 
         return response()->json([
-            'events' => EventsResource::collection($events), 
+            'event' => new EventsResource($event), 
         ], 200);
     }
 }
