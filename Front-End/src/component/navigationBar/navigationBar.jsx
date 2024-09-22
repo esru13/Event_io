@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
-import { VscListFilter, VscBellDot } from "react-icons/vsc";
-import { FaCog, FaUser } from "react-icons/fa"; 
+import { VscListFilter } from "react-icons/vsc";
+import { FaCog, FaUser, FaRegBell, FaSignOutAlt, FaEnvelope } from "react-icons/fa"; 
 
 function NavigationBar() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -27,8 +27,17 @@ function NavigationBar() {
             <div className="flex justify-center items-center h-12 w-12 rounded-full bg-custom">
               <FaCog size={24} color="#5516DA" /> 
             </div>
+            {/* New Button */}
             <div className="flex justify-center items-center h-12 w-12 rounded-full bg-custom">
-              <VscBellDot size={24} color="#5516DA" />
+              <FaSignOutAlt size={24} color="#5516DA" />
+            </div>
+            {/* Message Button */}
+            <div className="flex justify-center items-center h-12 w-12 rounded-full bg-custom">
+              <FaEnvelope size={24} color="#5516DA" />
+            </div>
+            {/* Updated Notification Button */}
+            <div className="flex justify-center items-center h-12 w-12 rounded-full bg-custom">
+              <FaRegBell size={24} color="#5516DA" />
             </div>
             <div className="flex flex-col justify-center items-end mr-2">
               <span className="text-base font-semibold">Lala Ba.</span>
@@ -39,7 +48,6 @@ function NavigationBar() {
               onClick={toggleDropdown}
             >
               <FaUser size={24} color="#5516DA" />
-              
 
               {showDropdown && (
                 <div className="absolute right-0 mt-40 bg-white shadow-lg rounded-md p-3 w-52 text-sm">
