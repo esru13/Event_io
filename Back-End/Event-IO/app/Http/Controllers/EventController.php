@@ -108,4 +108,23 @@ class EventController extends Controller
             'event' => new EventsResource($event), 
         ], 200);
     }
+    public function searchByTitle(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+        $events = Event::where('title', 'like', '%' . $validated['title'] . '%')->get();
+
+        if ($events->isEmpty()) {
+            return response()->json([
+                'message' => 'No events found with the given title.',
+            ], 404);
+        }
+
+        return response()->json([
+            'message' => 'Events found',
+            'events' => $events,
+        ], 200);
+    }
+    
 }

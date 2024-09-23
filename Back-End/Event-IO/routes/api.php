@@ -30,6 +30,7 @@ Route::post('login/eventOrg', [AuthController::class, 'loginEventOrg']);
 Route::get('categories', [CategoryController::class, 'GetCategories']);
 Route::get('events', [EventController::class, 'events']);
 Route::get('event/{id}', [EventController::class, 'getEvent']);
+Route::get('/events/search', [EventController::class, 'searchByTitle']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout/', [AuthController::class, 'logout']);
