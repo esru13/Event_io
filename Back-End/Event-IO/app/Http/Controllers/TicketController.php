@@ -45,46 +45,33 @@ class TicketController extends Controller
             'available_ticket_types' => $availableTicketTypes,
         ], 200);
     }
-
-    public function buyTicket(Request $request, $eventId): JsonResponse
+    public function createTicket(Request $request, $eventId): JsonResponse
     {
-        $request->validate([
-            'ticket_type' => 'required|string|in:normal,vip',
-            'quantity' => 'required|integer|min:1',
-        ]);
-
         $event = Event::find($eventId);
 
         if (!$event) {
             return response()->json(['message' => 'Event not found.'], 404);
         }
-
-        $ticketPrice = $request->ticket_type === 'normal' ? $event->normal_price : $event->vip_price;
-        $availableSeats = $request->ticket_type === 'normal' ? $event->normal_seats : $event->vip_seats;
-
-        if ($availableSeats < $request->quantity) {
-            return response()->json(['message' => 'Not enough seats available.'], 400);
-        }
-
-        $ticket = Ticket::create([
-            'event_id' => $eventId, 
-            'user_id' => Auth::id(),
-            'quantity' => $request->quantity,
-            'total_price' => $request->quantity * $ticketPrice,
-            'payment_status' => 'pending',
+        $validated = $request->validate([
+            'ticket_type' => 'required|in:normal,vip',
+            'quantity' => 'required|integer|min:1',
         ]);
 
-        if ($request->ticket_type === 'normal') {
-            $event->normal_seats -= $request->quantity;
-        } else {
-            $event->vip_seats -= $request->quantity;
-        }
-        $event->save();
+        $ticketPrice = $validated['ticket_type'] === 'vip' ? $event->vip_price : $event->normal_price;
+
+        $ticket = Ticket::create([
+            'event_id' => $event->id, 
+            'user_id' => Auth::id(),
+            'quantity' => $validated['quantity'],
+            'total_price' => $validated['quantity'] * $ticketPrice,
+            'payment_status' => 'pending', 
+            'tx_ref' => $request->input('tx_ref'),
+        ]);
 
         return response()->json([
-            'message' => 'Ticket purchased successfully.',
-            'ticket' => $ticket,
+            'message' => 'Ticket created successfully. Proceed to payment.',
+            'ticket_id' => $ticket->id,
+            'total_price' => $ticket->total_price,
         ], 201);
     }
-
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ChapaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::post('login/eventOrg', [AuthController::class, 'loginEventOrg']);
 Route::get('categories', [CategoryController::class, 'GetCategories']);
 Route::get('events', [EventController::class, 'events']);
 Route::get('event/{id}', [EventController::class, 'getEvent']);
+Route::get('/events/search', [EventController::class, 'searchEventByTitle']);
+Route::get('/search/',[EventController::class, 'search']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout/', [AuthController::class, 'logout']);
@@ -39,7 +42,7 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 Route::middleware(['auth:sanctum', 'user'])->group(function () {
     Route::post('select/ticket/{eventId}', [TicketController::class, 'selectTicket']);
-    Route::post('buy/ticket/{eventId}', [TicketController::class, 'buyTicket']);
+    Route::post('ticket/{eventId}', [TicketController::class, 'createTicket']);
 });
 Route::middleware(['auth:sanctum', 'event_organizer'])->group(function () {
     Route::post('add/categories', [CategoryController::class, 'CreateCategory']);
@@ -51,3 +54,6 @@ Route::middleware(['auth:sanctum', 'event_organizer'])->group(function () {
 });
 
 
+Route::post('/payment/initialize', [ChapaController::class, 'initializeTransaction']);
+Route::get('/chapa/webhook', [ChapaController::class, 'handleWebhook'])->name('chapa.webhook');
+Route::post('/chapa/webhook', [ChapaController::class, 'handleWebhook'])->name('chapa.webhook');
