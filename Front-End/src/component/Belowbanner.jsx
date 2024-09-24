@@ -153,16 +153,18 @@ const Belowbanner = () => {
   </h2>
   <div 
     className="bg-purple-200 mx-auto rounded-2xl shadow-lg"
-    style={{ maxWidth: '90%', height: '500px' }} // Responsive max width
+    style={{ maxWidth: '90%', height: '650px' }} // Responsive max width
   >
-    <video
-      controls
-      className="w-full h-full object-cover rounded-2xl"
-      style={{ borderRadius: 'inherit' }} // Ensure rounded corners are inherited
-    >
-      <source src="assets/app-demo.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+<div className="flex justify-center items-center w-full h-full">
+  <video
+    controls
+    className="w-[300px] h-[600px] object-cover rounded-2xl"
+    style={{ borderRadius: 'inherit' }} // Ensure rounded corners are inherited
+  >
+    <source src="assets/demo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
   </div>
 </section>
 
