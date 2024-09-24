@@ -10,14 +10,13 @@ class Ticket extends Model
     use HasFactory;
 
     protected $fillable = [
-        'event_id',     // Added to allow mass assignment
-        'user_id',      // Added to allow mass assignment
+        'event_id',   
+        'user_id',     
         'quantity',
-        'total_price',  // Added to allow mass assignment
-        'payment_status', // Added to allow mass assignment
+        'total_price', 
+        'tx_ref', 
     ];
 
-    // Optional: Define relationships if needed
     public function event()
     {
         return $this->belongsTo(Event::class);

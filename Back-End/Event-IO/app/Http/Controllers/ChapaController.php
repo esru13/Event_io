@@ -31,6 +31,7 @@ class ChapaController extends Controller
                 "description" => "Payment for event tickets", 
             ]
         ]);
+        
 
         if ($response->successful()) {
             $checkoutUrl = $response->json('data.checkout_url');
@@ -49,6 +50,7 @@ class ChapaController extends Controller
 
     public function handleWebhook(Request $request)
     {
+        $data = $request->all();
         $txRef = $request->input('tx_ref');
 
         if (!$txRef) {
@@ -64,15 +66,8 @@ class ChapaController extends Controller
 
             $ticket->payment_status = ($paymentStatus == 'success') ? 'completed' : 'failed';
             $ticket->save();
-            PaymentLog::create([
-                'user_id' => $ticket->user_id,
-                'event_id' => $ticket->event_id,
-                'ticket_id' => $ticket->id,
-                'amount' => $request->input('amount'),
-                'tx_ref' => $txRef,
-                'status' => $paymentStatus,
-                'payment_method' => 'Chapa',
-            ]);
+
+           
 
             return response()->json(['status' => 'Payment processed successfully'], 200);
         } else {

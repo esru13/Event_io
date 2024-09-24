@@ -32,7 +32,7 @@ Route::get('categories', [CategoryController::class, 'GetCategories']);
 Route::get('events', [EventController::class, 'events']);
 Route::get('event/{id}', [EventController::class, 'getEvent']);
 Route::get('/events/search', [EventController::class, 'searchEventByTitle']);
-Route::get('/search/',[EventController::class, 'search']);
+Route::get('search/',[EventController::class, 'search']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout/', [AuthController::class, 'logout']);
@@ -55,5 +55,5 @@ Route::middleware(['auth:sanctum', 'event_organizer'])->group(function () {
 
 
 Route::post('/payment/initialize', [ChapaController::class, 'initializeTransaction']);
-Route::get('/chapa/webhook', [ChapaController::class, 'handleWebhook'])->name('chapa.webhook');
+// Route::get('/chapa/webhook', [ChapaController::class, 'handleWebhook'])->name('chapa.webhook');
 Route::post('/chapa/webhook', [ChapaController::class, 'handleWebhook'])->name('chapa.webhook');
